@@ -2,18 +2,24 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.0'
 gem 'sqlite3'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
-gem 'jquery-rails'
+
 gem 'haml-rails'
-gem 'simple_form'
+gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
-gem 'geocoder'
+
+gem 'jquery-rails'
 gem 'underscore-rails'
-gem 'gmaps4rails'
-gem 'active_model_serializers', github: 'rails-api/active_model_serializers', branch: '0-8-stable'
 gem 'mustache-js-rails'
+gem 'coffee-rails', '~> 4.1.0'
+gem 'active_model_serializers', github: 'rails-api/active_model_serializers', branch: '0-8-stable'
+gem 'uglifier', '>= 1.3.0'
+
+gem 'simple_form'
+
+gem 'geocoder'
+gem 'gmaps4rails'
+
+gem 'whenever', :require => false
 
 group :development, :test do
   gem 'colored'
