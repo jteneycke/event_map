@@ -13,6 +13,7 @@ gem 'geocoder'
 gem 'underscore-rails'
 gem 'gmaps4rails'
 gem 'active_model_serializers', github: 'rails-api/active_model_serializers', branch: '0-8-stable'
+gem 'mustache-js-rails'
 
 group :development, :test do
   gem 'colored'

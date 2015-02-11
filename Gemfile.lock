@@ -102,6 +102,8 @@ GEM
     mini_portile (0.6.2)
     minitest (5.5.1)
     multi_json (1.10.1)
+    mustache-js-rails (1.0.0)
+      railties (>= 3.1, <= 5.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     pry (0.10.1)
@@ -193,6 +195,7 @@ DEPENDENCIES
   gmaps4rails
   haml-rails
   jquery-rails
+  mustache-js-rails
   pry-rails
   quiet_assets
   rails (= 4.2.0)

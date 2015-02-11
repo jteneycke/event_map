@@ -23,9 +23,25 @@ $(document).ready(function(){
         title: value.title
       });
 
+//  %h1 {{ title }}
+//  %h2 {{ venue }}
+//  %h3 {{ address }}
+//  %h3 {{ time }}
+//  %p {{ content }}
+//
+      var template = $('#template').html();
+      var details = {
+        title:   value.title,
+        venue:   value.venue,
+        address: value.address,
+        time:    value.time,
+        content: value.body
+      }
+
+      var rendered = Mustache.render(template, details)
+  
       google.maps.event.addListener(marker, 'click', function() {
-        $("#event_details").html(value.body)
-        console.log(value.body)
+        $("#event_details").html(rendered)
       });
 
     });

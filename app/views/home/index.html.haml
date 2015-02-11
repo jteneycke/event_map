@@ -5,3 +5,9 @@
     #map_canvas{:style => "width: 100%; height: 800px;"}
   .col-md-4
     #event_details
+
+%script#template{:type => "x-tmpl-mustache"}
+  %h1 {{ title }}
+  %h2 {{ venue }} <br> ({{ address }})
+  %h1 {{ time }}
+  %p {{{ content }}}

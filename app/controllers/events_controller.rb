@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 
   # GET /events
   def index
-    @events = Event.all
+    @events = Event.where('date = ?', Date.today).all
     render json: @events, each_serializer: EventSerializer
   end
 
