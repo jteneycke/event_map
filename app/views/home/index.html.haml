@@ -5,7 +5,8 @@
     #event_details{style: "overflow-y: scroll; height: 700px;"}
 
 %script#template{:type => "x-tmpl-mustache"}
-  %h2 {{ title }}
-  %h3 {{ venue }} <br> ({{ address }})
-  %h2 {{ time }}
+  %h3 {{ title }}
+  %hr
+  %h4 {{ time }} - {{ venue }} ({{ address }})
+  %hr
   %p {{{ content }}}

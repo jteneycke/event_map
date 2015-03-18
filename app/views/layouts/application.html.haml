@@ -19,6 +19,14 @@
             %span.icon-bar
           %a.navbar-brand{href: root_path}
             Better BlogTo Events Map
-        #bs-example-navbar-collapse-1.collapse.navbar-collapse
-          %ul.nav.navbar-nav
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav.pull-right
+            %li
+              %a
+                %span.glyphicon.glyphicon-chevron-left
+                Previous Day
+            %li
+              %a
+                Next Day
+                %span.glyphicon.glyphicon-chevron-right
     = yield
