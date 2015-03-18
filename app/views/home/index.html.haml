@@ -1,13 +1,11 @@
-%h1 Event Map
-
 .row
   .col-md-8
-    #map_canvas{:style => "width: 100%; height: 800px;"}
+    #map_canvas{:style => "width: 100%; height: 700px;"}
   .col-md-4
-    #event_details
+    #event_details{style: "overflow-y: scroll; height: 700px;"}
 
 %script#template{:type => "x-tmpl-mustache"}
-  %h1 {{ title }}
-  %h2 {{ venue }} <br> ({{ address }})
-  %h1 {{ time }}
+  %h2 {{ title }}
+  %h3 {{ venue }} <br> ({{ address }})
+  %h2 {{ time }}
   %p {{{ content }}}
