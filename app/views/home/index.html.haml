@@ -2,11 +2,12 @@
   .col-md-8
     #map_canvas{:style => "width: 100%; height: 700px;"}
   .col-md-4
-    #event_details{style: "overflow-y: scroll; height: 700px;"}
+    #event_details
 
 %script#template{:type => "x-tmpl-mustache"}
-  %h3 {{ title }}
+  %h3.event-title {{ title }}
   %hr
-  %h4 {{ time }} - {{ venue }} ({{ address }})
+  %h4.event-venue {{ time }} - {{ venue }} 
+  %h4.event-venue ({{ address }})
   %hr
   %p {{{ content }}}

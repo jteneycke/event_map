@@ -11,5 +11,16 @@ body {
 }
 
 body,html{
-  overflow:hidden
+	height: 100%;
+  overflow:hidden;
+}
+
+#event_details {
+	overflow-y: scroll; 
+	height: 600px;
+	margin-right: 10px;
+}
+
+.event-title, .event-venue {
+	text-align: center;
 }
