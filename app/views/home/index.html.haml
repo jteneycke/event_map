@@ -5,9 +5,10 @@
     #event_details
 
 %script#template{:type => "x-tmpl-mustache"}
-  %h3.event-title {{ title }}
+  %h3.event-title
+    %a{href: "{{website}}", target: "_blank" } {{ title }}
   %hr
   %h4.event-venue {{ time }} - {{ venue }} 
-  %h4.event-venue ({{ address }})
+  %h4.event-venue {{ address }}
   %hr
   %p {{{ content }}}

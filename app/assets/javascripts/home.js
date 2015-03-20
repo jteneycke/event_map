@@ -1,9 +1,12 @@
 $(document).ready(function(){
 
+  var styles = [{"featureType":"all","elementType":"all","stylers":[{"saturation":-100},{"gamma":0.5}]}]
+
   var mapOptions = {
     center: new google.maps.LatLng(43.6529083,-79.3981501),
     zoom: 14,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    styles: styles
     };
 
   var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
@@ -24,7 +27,8 @@ $(document).ready(function(){
         venue:   value.venue,
         address: value.address,
         time:    value.time,
-        content: value.body
+        content: value.body,
+        website: value.website
       }
 
       var rendered = Mustache.render(template, details)
