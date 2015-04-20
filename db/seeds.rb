@@ -20,6 +20,7 @@ date_urls.each do |date_url|
 
   puts "\nFetching #{date_url}..."
 
+  # find_or_create_by
   events_links.map do |event_url|
     page = Nokogiri::HTML(open(event_url))
     begin

@@ -35,6 +35,7 @@ $(document).ready(function(){
   
       google.maps.event.addListener(marker, 'click', function() {
         $("#event_details").html(rendered)
+        $("#event_details").scrollTop(0)
       });
 
     });
