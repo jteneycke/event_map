@@ -4,6 +4,5 @@
 //= require underscore
 //= require mustache
 //= require jquery.mustache
-//= require gmaps/google
 //= require gmapsjs
 //= require_tree .

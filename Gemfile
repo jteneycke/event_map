@@ -19,7 +19,6 @@ gem 'simple_form'
 gem 'gmapsjs'
 
 gem 'geocoder'
-gem 'gmaps4rails'
 
 gem 'whenever', :require => false
 
