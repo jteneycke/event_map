@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.0'
-gem 'sqlite3'
+gem 'pg'
 
 gem 'haml-rails'
 gem 'sass-rails', '~> 5.0'
@@ -15,6 +15,8 @@ gem 'active_model_serializers', github: 'rails-api/active_model_serializers', br
 gem 'uglifier', '>= 1.3.0'
 
 gem 'simple_form'
+
+gem 'gmapsjs'
 
 gem 'geocoder'
 gem 'gmaps4rails'
