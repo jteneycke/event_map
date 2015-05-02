@@ -7,10 +7,10 @@ gem 'haml-rails'
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
 
+gem 'therubyracer'
 gem 'jquery-rails'
 gem 'underscore-rails'
 gem 'mustache-js-rails'
-gem 'coffee-rails', '~> 4.1.0'
 gem 'active_model_serializers', github: 'rails-api/active_model_serializers', branch: '0-8-stable'
 gem 'uglifier', '>= 1.3.0'
 
@@ -36,3 +36,6 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
 end
 
+group :production do
+  gem 'pry-rails'
+end
