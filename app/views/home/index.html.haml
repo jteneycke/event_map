@@ -1,3 +1,5 @@
+.my_date{data: {date: "#{@date}"} }
+
 .row
   .col-md-8
     #map_canvas{:style => "width: 100%; height: 700px;"}
@@ -11,4 +13,4 @@
   %h4.event-venue {{ time }} - {{ venue }} 
   %h4.event-venue {{ address }}
   %hr
-  %p {{{ content }}}
+  %p {{{ body }}}

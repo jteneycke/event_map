@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "bootstrap-datetimepicker";
 
 img.photo {
   width: 100%
@@ -18,7 +19,7 @@ body,html{
 #event_details {
 	overflow-y: scroll; 
 	height: 600px;
-	margin-right: 20px;
+	padding-right: 20px;
 }
 
 .event-title, .event-venue {

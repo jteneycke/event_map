@@ -35,7 +35,15 @@ class EventsControllerTest < ActionController::TestCase
   end
 
   test "should update event" do
-    patch :update, id: @event, event: { address: @event.address, body: @event.body, date: @event.date, time: @event.time, title: @event.title, venue: @event.venue, website: @event.website }
+    patch :update, id: @event, event: {
+      address: @event.address,
+      body: @event.body,
+      date: @event.date,
+      time: @event.time,
+      title: @event.title,
+      venue: @event.venue,
+      website: @event.website
+    }
     assert_redirected_to event_path(assigns(:event))
   end
 

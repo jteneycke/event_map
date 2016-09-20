@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  $(".navbar-form select").addClass("form-control")
 
   var styles = [{"featureType":"all","elementType":"all","stylers":[{"saturation":-100},{"gamma":0.5}]}]
 
@@ -11,34 +12,30 @@ $(document).ready(function(){
   });
 
   window.my_map = map
-
-  $.getJSON('/events.json', function(data) { 
+ 
+  var my_date = $(".my_date").data("date")
+  $.getJSON('/events.json?date='+ my_date, function(data) { 
     $.each( data.events, function(i, value) {
 
-      var details = {
-        title:   value.title,
-        venue:   value.venue,
-        address: value.address,
-        time:    value.time,
-        content: value.body,
-        website: value.website
-      }
       var template = $('#template').html();
-      var rendered = Mustache.render(template, details)
+      var rendered = Mustache.render(template, value)
 
       map.addMarker({
         lat: value.latitude,
         lng: value.longitude,
         title: value.title,
-        icon: "/" + _.sample(["yoga", "war", "wetlands", "windturbine"]) + ".png",
+        //icon: "/" + _.sample(["yoga", "war", "wetlands", "windturbine"]) + ".png",
         click: function(e) {
           $("#event_details").html(rendered)
+          $("#event_details a").attr('target', '_blank')
           $("#event_details").scrollTop(0)
         }
       });
 
     });
   })
+
+
 
   window.my_counter = 0
   window.my_path = function() {

@@ -2,7 +2,12 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.where('date = ?', @date).all
+    @date = if params[:date].present?
+              DateTime.parse(params[:date])
+            else
+              DateTime.now
+            end
+    @events = Event.where(date: @date).all
     render json: @events, each_serializer: EventSerializer
   end
 
