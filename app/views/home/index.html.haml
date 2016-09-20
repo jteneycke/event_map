@@ -1,9 +1,9 @@
 .my_date{data: {date: "#{@date}"} }
 
-.row
-  .col-md-8
-    #map_canvas{:style => "width: 100%; height: 700px;"}
-  .col-md-4
+.row{:style => "height: 100%;"}
+  .col-md-8{:style => "height: 100%;"}
+    #map_canvas{:style => "width: 100%; height: 100%;"}
+  .col-md-4{:style => "height: 100%;"}
     #event_details
 
 %script#template{:type => "x-tmpl-mustache"}
