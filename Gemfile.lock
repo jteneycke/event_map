@@ -45,7 +45,6 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.0)
-    awesome_print (1.6.1)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.1.0)
@@ -53,25 +52,12 @@ GEM
     bootstrap3-datetimepicker-rails (4.14.30)
       momentjs-rails (>= 2.8.1)
     builder (3.2.2)
-    byebug (3.5.1)
-      columnize (~> 0.8)
-      debugger-linecache (~> 1.2)
-      slop (~> 3.6)
     chronic (0.10.2)
     coderay (1.1.0)
     colored (1.2)
-    columnize (0.9.0)
     debug_inspector (0.0.2)
-    debugger-linecache (1.2.0)
-    did_you_mean (1.0.2)
     erubis (2.7.0)
     execjs (2.3.0)
-    favorite_things (0.1.8)
-      awesome_print
-      did_you_mean
-      pry-rails
-      quiet_assets
-      table_print
     geocoder (1.4.0)
     globalid (0.3.2)
       activesupport (>= 4.1.0)
@@ -184,7 +170,6 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
-    table_print (1.5.4)
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
@@ -213,9 +198,7 @@ DEPENDENCIES
   active_model_serializers!
   bootstrap-sass
   bootstrap3-datetimepicker-rails (~> 4.14.30)
-  byebug
   colored
-  favorite_things
   geocoder
   gmapsjs
   haml-rails
@@ -223,8 +206,10 @@ DEPENDENCIES
   momentjs-rails (>= 2.9.0)
   mustache-js-rails
   pg
+  pry-rails
   que
   que-web
+  quiet_assets
   rails (= 4.2.0)
   sass-rails (~> 5.0)
   simple_form

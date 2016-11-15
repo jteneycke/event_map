@@ -27,10 +27,10 @@ gem 'gmapsjs'
 gem 'geocoder'
 
 gem 'whenever', :require => false
-gem 'favorite_things'
+gem 'pry-rails'
 
 group :development, :test do
   gem 'colored'
-  gem 'byebug'
   gem 'web-console', '~> 2.0'
+  gem 'quiet_assets'
 end
