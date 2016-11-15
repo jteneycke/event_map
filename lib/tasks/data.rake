@@ -5,19 +5,17 @@ namespace :data do
   desc "Scrape and update data from blogto"
   task update: :environment do
 
-    day_base_url = "http://www.blogto.com/events/?date="
-    date_range = (Date.today..(Date.today + 10)).to_a.map(&:to_s)
-    date_urls = date_range.map{|url| day_base_url + url }
+    date_urls = (Date.today..(Date.today + 10)).to_a.map do |date|
+      "http://www.blogto.com/events/?date=" + date.to_s
+    end
 
     date_urls.each do |date_url|
-      events_page = Nokogiri::HTML(open(date_url))
-
-      events_links = events_page.css(".events-item .event-name a")
-                                .map{|x| "http://www.blogto.com" + x.attr('href') }
-
       puts "\nFetching #{date_url}..."
 
-      # find_or_create_by
+      events_links = Nokogiri::HTML(open(date_url)) 
+                       .css(".events-item .event-name a")
+                       .map{|x| "http://www.blogto.com" + x.attr('href') }
+
       events_links.map do |event_url|
         page = Nokogiri::HTML(open(event_url))
         begin

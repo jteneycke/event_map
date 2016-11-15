@@ -25,3 +25,12 @@ body,html{
 .event-title, .event-venue {
 	text-align: center;
 }
+
+.navbar-inverse {
+  background: #10CFCA !important;
+  border: none !important;
+}
+
+.navbar-brand, .navbar-nav li a {
+  color: white !important;
+}
