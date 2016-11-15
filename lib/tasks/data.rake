@@ -1,6 +1,5 @@
 require "nokogiri"
 require "open-uri"
-require "colored"
 
 namespace :data do
   desc "Scrape and update data from blogto"
@@ -23,7 +22,7 @@ namespace :data do
         page = Nokogiri::HTML(open(event_url))
         begin
           if Event.where(title: page.css("h1.title").text, date: page.css(".info-eventdate").text.to_date).present?
-            print "|".yellow # alread exists in db
+            print "|" # alread exists in db
           else
             event = Event.create!(
               title:    page.css("h1.title").text,
@@ -34,12 +33,11 @@ namespace :data do
               address:  page.css(".location").text.strip,
               website:  (page.css(".info-website").attr('href').value unless page.css(".info-website").empty?)
             )
-            print "|".green
+            print "|"
           end
         rescue => e
-          puts "\n" + e.to_s.red
-          puts event_url.to_s.red
-          #binding.pry
+          puts "\n" + e.to_s
+          puts event_url.to_s
         end
       end
     end
