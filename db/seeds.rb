@@ -41,7 +41,7 @@ date_urls.each do |date_url|
     rescue => e
       puts "\n" + e.to_s.red
       puts event_url.to_s.red
-      binding.pry
+      #binding.pry
     end
   end
 end

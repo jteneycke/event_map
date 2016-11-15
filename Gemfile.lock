@@ -1,6 +1,6 @@
 GIT
-  remote: git://github.com/rails-api/active_model_serializers.git
-  revision: 8d31f7ee8c0ea3ed83ab871765f1444291278b41
+  remote: https://github.com/rails-api/active_model_serializers.git
+  revision: 07addbf8c7c53c6ec4a0cf9fe4cf204dafe18929
   branch: 0-8-stable
   specs:
     active_model_serializers (0.8.3)
@@ -155,7 +155,7 @@ GEM
       activesupport (= 4.2.0)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rake (11.2.2)
+    rake (11.3.0)
     ref (1.0.5)
     ruby_parser (3.6.4)
       sexp_processor (~> 4.1)
@@ -235,4 +235,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   1.13.1
+   1.13.6

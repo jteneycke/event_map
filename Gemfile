@@ -19,7 +19,8 @@ gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 
 
-gem 'active_model_serializers', github: 'rails-api/active_model_serializers', branch: '0-8-stable'
+gem 'active_model_serializers', git: 'https://github.com/rails-api/active_model_serializers.git', branch: '0-8-stable'
+
 gem 'uglifier', '>= 1.3.0'
 
 gem 'gmapsjs'
