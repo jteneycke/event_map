@@ -12,12 +12,17 @@ namespace :data do
     date_urls.each do |date_url|
       puts "\nFetching #{date_url}..."
 
-      events_links = Nokogiri::HTML(open(date_url)) 
-                       .css(".events-item .event-name a")
-                       .map{|x| "http://www.blogto.com" + x.attr('href') }
+      index_page =  Nokogiri::HTML(open(date_url)) 
+      events = index_page.css(".events-item").map do |event|
+        {
+          event_url: event.css(".event-name a").map{|x| "http://www.blogto.com" + x.attr('href') }.first,
+          image_url: event.css(".poster a img").map{|img| img.attr("src") }.first
+        }
+      end
 
-      events_links.map do |event_url|
-        page = Nokogiri::HTML(open(event_url))
+
+      events.each do |event|
+        page = Nokogiri::HTML(open(event[:event_url]))
         begin
           if Event.where(title: page.css("h1.title").text, date: page.css(".info-eventdate").text.to_date).present?
             print "|" # alread exists in db
@@ -29,13 +34,15 @@ namespace :data do
               time:     page.css(".info-eventtime").text.strip,
               venue:    page.css(".venue-name").text.strip,
               address:  page.css(".location").text.strip,
-              website:  (page.css(".info-website").attr('href').value unless page.css(".info-website").empty?)
+              website:  (page.css(".info-website").attr('href').value unless page.css(".info-website").empty?),
+              image_url: event[:image_url]
             )
             print "|"
           end
         rescue => e
           puts "\n" + e.to_s
-          puts event_url.to_s
+          puts event[:event_url]
+          binding.pry
         end
       end
     end

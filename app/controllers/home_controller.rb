@@ -5,5 +5,6 @@ class HomeController < ApplicationController
             else
               DateTime.now
             end
+    @events = Event.where(date: @date).all
   end
 end
