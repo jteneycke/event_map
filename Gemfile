@@ -29,6 +29,10 @@ gem 'geocoder'
 gem 'whenever', :require => false
 gem 'pry-rails'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :development, :test do
   gem 'colored'
   gem 'web-console', '~> 2.0'
