@@ -7,4 +7,5 @@
 //= require mustache
 //= require jquery.mustache
 //= require gmapsjs
+//= require slick.min
 //= require_tree .

@@ -3,12 +3,13 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Better BlogTo Events Map
-    %script{:src => "//maps.google.com/maps/api/js?v=3.24&libraries=geometry&key=AIzaSyD0SQuZQcy11HUDGapDT0e0o1fu648cxiA", :type => "text/javascript"}
     -#%script{:src => "//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js", :type => "text/javascript"}
+    = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
+    %script{:src => "https://maps.google.com/maps/api/js?v=3.24&libraries=geometry&key=AIzaSyD0SQuZQcy11HUDGapDT0e0o1fu648cxiA", :type => "text/javascript"}
+
     = javascript_include_tag 'application'
     = javascript_include_tag *webpack_asset_paths("application")
-    = csrf_meta_tags
 
   %body{ class: "#{controller_name} #{action_name} #{controller_path.split('/').first}" }
     %nav.navbar.navbar-inverse.navbar-fixed-top{role: "navigation"}

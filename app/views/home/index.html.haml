@@ -2,7 +2,37 @@
 
 .row{:style => "height: 100%;"}
   .col-md-8{:style => "height: 100%;"}
-    #map_canvas{:style => "width: 100%; height: 100%;"}
+    #map_canvas{:style => "width: 100%; height: 70%;"}
+    
+    #event_listings{:style => "width: 100%; height: 30%;"}
+      %ul.listings
+        - @events.each do |event|
+          %li
+            %img.slider-image{src: event.image_url, data: {id: event.id } }
+
+    :javascript
+      $(document).ready(function(){
+        $('.listings').slick({
+          infinite: true,
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          arrows: true
+        });
+
+        $(".slider-image").click(function(){
+          var that = this
+          var event = _.find(window.event_listings, function(event) { return event.id == that.dataset.id })
+          
+          var template = $('#template').html();
+          var rendered = Mustache.render(template, event)
+
+          $("#event_details").html(rendered)
+          $("#event_details a").attr('target', '_blank')
+          $("#event_details").scrollTop(0)
+
+        })
+      });
+
   .col-md-4{:style => "height: 100%;"}
     #event_details
 

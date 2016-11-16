@@ -154,9 +154,11 @@ $(document).ready(function(){
   });
 
   window.my_map = map
- 
   var my_date = $(".my_date").data("date")
   $.getJSON('/events.json?date='+ my_date, function(data) { 
+
+    window.event_listings = data.events
+
     $.each( data.events, function(i, value) {
 
       var template = $('#template').html();
@@ -177,29 +179,6 @@ $(document).ready(function(){
     });
   })
 
-
-
-  window.my_counter = 0
-  window.my_path = function() {
-    var dest   = window.my_map.markers[window.my_counter]
-    window.my_map.drawRoute({
-      origin: [43.6672691,-79.4278474],
-      destination: [dest.position.k, dest.position.B],
-      travelMode: 'biking',
-      strokeColor:  _.sample(["#d11141","#00b159","#00aedb","#f37735","#ffc425"]),
-      strokeOpacity: 0.6,
-      strokeWeight: 6
-    });
-    window.my_counter++
-    if (window.my_counter > window.my_map.markers.length) {
-      window.my_counter = 0
-      console.log("Reseting counter")
-    }
-    console.log({
-      "Route": _.last(window.my_map.routes),
-      "Destination": dest.position.k + " " + dest.position.B
-    })
-  }
 
 
 
