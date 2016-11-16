@@ -154,6 +154,7 @@ $(document).ready(function(){
   });
 
   window.my_map = map
+
   var my_date = $(".my_date").data("date")
   $.getJSON('/events.json?date='+ my_date, function(data) { 
 
@@ -177,6 +178,10 @@ $(document).ready(function(){
       });
 
     });
+
+    // trigger one that it doesn't look all blank to start
+    var random_marker = _.sample(window.my_map.markers)
+    google.maps.event.trigger(random_marker, 'click')
   })
 
 
