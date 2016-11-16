@@ -1,16 +1,41 @@
 .my_date{data: {date: "#{@date}"} }
 
 .row{:style => "height: 100%;"}
-  .col-md-8{:style => "height: 100%;"}
-    #map_canvas{:style => "width: 100%; height: 70%;"}
+
+  .col-md-3{:style => "height: 100%; padding: 15px;"}
+
+    .row
+      %form.navbar-form.pull-right{ action: "/", method: "GET", name: "search" }
+        .form-group
+          #datetimepicker1.input-group.date
+            %input.form-control{:type => "text", name: "date", value: @date.strftime("%Y/%m/%d")}/
+            %span.input-group-addon
+              %span.glyphicon.glyphicon-calendar
+
+        :javascript
+          $(function () {
+            $('#datetimepicker1').datetimepicker({
+              format: "YYYY/MM/DD"
+            });
+
+            $('#datetimepicker1').on("dp.change", function(e){
+              console.log("changed date")
+              $("form[name=search]").submit()
+            })
+          });
+
+    #event_details
+
+  .col-md-9{:style => "height: 100%; padding-left: 0px"}
+    #map_canvas{:style => "width: 100%; height: 100%;"}
     
-    #event_listings{:style => "width: 100%; height: 30%;"}
+    -#event_listings{:style => "width: 100%; height: 30%;"}
       %ul.listings
         - @events.each do |event|
           %li
             %img.slider-image{src: event.image_url, data: {id: event.id } }
 
-    :javascript
+    -#:javascript
       $(document).ready(function(){
         $('.listings').slick({
           infinite: true,
@@ -32,9 +57,6 @@
 
         })
       });
-
-  .col-md-4{:style => "height: 100%;"}
-    #event_details
 
 %script#template{:type => "x-tmpl-mustache"}
   %h3.event-title

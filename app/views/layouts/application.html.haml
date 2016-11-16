@@ -22,27 +22,7 @@
           %a.navbar-brand{href: root_path}
             Better BlogTo Events Map
         .collapse.navbar-collapse
-          %form.navbar-form.pull-right{ action: "/", method: "GET", name: "search" }
-            .form-group
-              #datetimepicker1.input-group.date
-                %input.form-control{:type => "text", name: "date", value: @date.strftime("%Y/%m/%d")}/
-                %span.input-group-addon
-                  %span.glyphicon.glyphicon-calendar
-          %ul.nav.navbar-nav.pull-right
+          %ul.nav.navbar-nav
             %li
               %a Click on a marker to see the details for the event at that location.
-
-            :javascript
-              $(function () {
-                $('#datetimepicker1').datetimepicker({
-                  format: "YYYY/MM/DD"
-                });
-
-                $('#datetimepicker1').on("dp.change", function(e){
-                  console.log("changed date")
-                  $("form[name=search]").submit()
-                })
-              });
-
-            -#= submit_tag "Check day", class: "form-control btn-info"
     = yield
