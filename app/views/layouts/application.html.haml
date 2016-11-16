@@ -7,6 +7,7 @@
     -#%script{:src => "//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js", :type => "text/javascript"}
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
+    = javascript_include_tag *webpack_asset_paths("application")
     = csrf_meta_tags
 
   %body{ class: "#{controller_name} #{action_name} #{controller_path.split('/').first}" }

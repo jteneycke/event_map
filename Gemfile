@@ -10,6 +10,9 @@ gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
 gem 'simple_form'
 
+gem 'foreman'
+gem 'webpack-rails'
+
 gem 'therubyracer'
 gem 'jquery-rails'
 gem 'underscore-rails'
