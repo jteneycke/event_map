@@ -7,7 +7,7 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
     %script{:src => "https://maps.google.com/maps/api/js?v=3.24&libraries=geometry&key=AIzaSyD0SQuZQcy11HUDGapDT0e0o1fu648cxiA", :type => "text/javascript"}
-
+    %script{:async => "", :defer => "defer", :src => "https://buttons.github.io/buttons.js"}
     = javascript_include_tag 'application'
 
   %body{ class: "#{controller_name} #{action_name} #{controller_path.split('/').first}" }
@@ -25,4 +25,12 @@
           %ul.nav.navbar-nav
             %li
               %a Click on a marker to see the details for the event at that location.
+          %ul.nav.navbar-nav.pull-right
+            %li
+              %a Made with love and curiosity by Josh
+            %li{style: "margin-top: 15px"}
+              %a.twitter-follow-button{"data-show-count" => "false", :href => "https://twitter.com/josh_teneycke"} @josh_teneycke
+              %script{:async => "", :charset => "utf-8", :src => "//platform.twitter.com/widgets.js"}
+            %li{style: "margin-top: 15px; margin-left: 10px"}
+              %a.github-button{"aria-label" => "Follow @jteneycke on GitHub", "data-count-api" => "/users/jteneycke#followers", "data-count-aria-label" => "# followers on GitHub", "data-count-href" => "/jteneycke/followers", :href => "https://github.com/jteneycke"} Follow @jteneycke
     = yield
