@@ -1,13 +1,7 @@
 class GetPage < Que::Job
-  # Default settings for this job. These are optional - without them, jobs
-  # will default to priority 100 and run immediately.
-  #@priority = 10
-  #@run_at = proc { 1.minute.from_now }
 
   def run(user_id, options)
-    # Do stuff.
     user = User[user_id]
-
 
     ActiveRecord::Base.transaction do
       # Write any changes you'd like to the database.
@@ -21,4 +15,5 @@ class GetPage < Que::Job
       destroy
     end
   end
+
 end

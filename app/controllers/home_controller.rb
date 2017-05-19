@@ -1,10 +1,8 @@
 class HomeController < ApplicationController
+
   def index
-    @date = if params[:date].present?
-              DateTime.parse(params[:date])
-            else
-              DateTime.now
-            end
+    @date   = params[:date].present? ? DateTime.parse(params[:date]) : DateTime.now
     @events = Event.where(date: @date).all
   end
+
 end

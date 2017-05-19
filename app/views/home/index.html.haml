@@ -28,7 +28,7 @@
 
   .col-md-9{:style => "height: 100%; padding-left: 0px"}
     #map_canvas{:style => "width: 100%; height: 100%;"}
-    
+
     -#event_listings{:style => "width: 100%; height: 30%;"}
       %ul.listings
         - @events.each do |event|
@@ -47,7 +47,7 @@
         $(".slider-image").click(function(){
           var that = this
           var event = _.find(window.event_listings, function(event) { return event.id == that.dataset.id })
-          
+
           var template = $('#template').html();
           var rendered = Mustache.render(template, event)
 
@@ -62,7 +62,7 @@
   %h3.event-title
     %a{href: "{{website}}", target: "_blank" } {{ title }}
   %hr
-  %h4.event-venue {{ time }} - {{ venue }} 
+  %h4.event-venue {{ time }} - {{ venue }}
   %h4.event-venue {{ address }}
   %hr
   %p {{{ body }}}

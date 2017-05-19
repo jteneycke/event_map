@@ -1,148 +1,99 @@
 $(document).ready(function(){
   $(".navbar-form select").addClass("form-control")
 
-  //var styles = [{"featureType":"all","elementType":"all","stylers":[{"saturation":-100},{"gamma":0.5}]}]
+    //var styles = [{"featureType":"all","elementType":"all","stylers":[{"saturation":-100},{"gamma":0.5}]}]
 
-  var styles = [
-  {
-    "featureType": "landscape.man_made",
-    "elementType": "geometry",
-    "stylers": [
-    {
-      "color": "#f7f1df"
-    }
-    ]
-  },
-  {
-    "featureType": "landscape.natural",
-    "elementType": "geometry",
-    "stylers": [
-    {
-      "color": "#d0e3b4"
-    }
-    ]
-  },
-    {
+    var styles = [{
+      "featureType": "landscape.man_made",
+      "elementType": "geometry",
+      "stylers": [{
+        "color": "#f7f1df"
+      }]
+    },{
+      "featureType": "landscape.natural",
+      "elementType": "geometry",
+      "stylers": [{
+        "color": "#d0e3b4"
+      }]
+    },{
       "featureType": "landscape.natural.terrain",
       "elementType": "geometry",
-      "stylers": [
-      {
+      "stylers": [{
         "visibility": "off"
-      }
-      ]
-    },
-    {
+      }]
+    },{
       "featureType": "poi",
       "elementType": "labels",
-      "stylers": [
-      {
+      "stylers": [{
         "visibility": "off"
-      }
-      ]
-    },
-      {
-        "featureType": "poi.business",
-        "elementType": "all",
-        "stylers": [
-        {
-          "visibility": "off"
-        }
-        ]
-      },
-      {
-        "featureType": "poi.medical",
-        "elementType": "geometry",
-        "stylers": [
-        {
-          "color": "#fbd3da"
-        }
-        ]
-      },
-        {
-          "featureType": "poi.park",
-          "elementType": "geometry",
-          "stylers": [
-          {
-            "color": "#bde6ab"
-          }
-          ]
-        },
-        {
-          "featureType": "road",
-          "elementType": "geometry.stroke",
-          "stylers": [
-          {
-            "visibility": "off"
-          }
-          ]
-        },
-          {
-            "featureType": "road",
-            "elementType": "labels",
-            "stylers": [
-            {
-              "visibility": "off"
-            }
-            ]
-          },
-          {
-            "featureType": "road.highway",
-            "elementType": "geometry.fill",
-            "stylers": [
-            {
-              "color": "#ffe15f"
-            }
-            ]
-          },
-            {
-              "featureType": "road.highway",
-              "elementType": "geometry.stroke",
-              "stylers": [
-              {
-                "color": "#efd151"
-              }
-              ]
-            },
-            {
-              "featureType": "road.arterial",
-              "elementType": "geometry.fill",
-              "stylers": [
-              {
-                "color": "#ffffff"
-              }
-              ]
-            },
-              {
-                "featureType": "road.local",
-                "elementType": "geometry.fill",
-                "stylers": [
-                {
-                  "color": "black"
-                }
-                ]
-              },
-              {
-                "featureType": "transit.station.airport",
-                "elementType": "geometry.fill",
-                "stylers": [
-                {
-                  "color": "#cfb2db"
-                }
-                ]
-              },
-                {
-                  "featureType": "water",
-                  "elementType": "geometry",
-                  "stylers": [
-                  {
-                    "color": "#a2daf2"
-                  }
-                  ]
-                }
-  ]
-
-
-
+      }]
+    },{
+      "featureType": "poi.business",
+      "elementType": "all",
+      "stylers": [{
+        "visibility": "off"
+      }]
+    },{
+      "featureType": "poi.medical",
+      "elementType": "geometry",
+      "stylers": [{
+        "color": "#fbd3da"
+      }]
+    },{
+      "featureType": "poi.park",
+      "elementType": "geometry",
+      "stylers": [{
+        "color": "#bde6ab"
+      }]
+    },{
+      "featureType": "road",
+      "elementType": "geometry.stroke",
+      "stylers": [{
+        "visibility": "off"
+      }]
+    },{
+      "featureType": "road",
+      "elementType": "labels",
+      "stylers": [{
+        "visibility": "off"
+      }]
+    },{
+      "featureType": "road.highway",
+      "elementType": "geometry.fill",
+      "stylers": [{
+        "color": "#ffe15f"
+      }]
+    },{
+      "featureType": "road.highway",
+      "elementType": "geometry.stroke",
+      "stylers": [{
+        "color": "#efd151"
+      }]
+    },{
+      "featureType": "road.arterial",
+      "elementType": "geometry.fill",
+      "stylers": [{
+        "color": "#ffffff"
+      }]
+    },{
+      "featureType": "road.local",
+      "elementType": "geometry.fill",
+      "stylers": [{
+        "color": "black"
+      }]
+    },{
+      "featureType": "transit.station.airport",
+      "elementType": "geometry.fill",
+      "stylers": [{
+        "color": "#cfb2db"
+      }]
+    },{
+      "featureType": "water",
+      "elementType": "geometry",
+      "stylers": [{
+        "color": "#a2daf2"
+      }]
+    }]
 
 
   var map = new GMaps({
@@ -156,7 +107,7 @@ $(document).ready(function(){
   window.my_map = map
 
   var my_date = $(".my_date").data("date")
-  $.getJSON('/events.json?date='+ my_date, function(data) { 
+  $.getJSON('/events.json?date='+ my_date, function(data) {
 
     window.event_listings = data.events
 
@@ -183,8 +134,5 @@ $(document).ready(function(){
     var random_marker = _.sample(window.my_map.markers)
     google.maps.event.trigger(random_marker, 'click')
   })
-
-
-
 
 })

@@ -7,4 +7,5 @@ class ApplicationController < ActionController::Base
   def choose_date
     @date = Date.today
   end
+
 end
