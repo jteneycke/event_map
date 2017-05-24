@@ -115,7 +115,6 @@ GEM
     nio4r (1.2.1)
     nokogiri (1.7.2)
       mini_portile2 (~> 2.1.0)
-    pg (0.20.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -216,7 +215,6 @@ DEPENDENCIES
   jquery-rails
   momentjs-rails (>= 2.9.0)
   mustache-js-rails
-  pg
   pry-rails
   que
   que-web

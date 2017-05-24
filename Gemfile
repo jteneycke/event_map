@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # Update Rails
 gem 'rails', '5.0.0'
 
-gem 'pg'
+#gem 'pg'
 gem 'que'
 gem 'que-web'
 
