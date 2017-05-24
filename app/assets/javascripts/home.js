@@ -108,6 +108,7 @@ $(document).ready(function(){
   // Let's use proper scoping and not put stuff on window.
   window.my_map = map
 
+  // http://www.blogto.com/api/v2/events/?bundle_type=medium&date=2017-05-19&limit=9999&offset=0&ordering=-start_date_time
   var my_date = $(".my_date").data("date")
   $.getJSON('/events.json?date='+ my_date, function(data) {
     window.event_listings = data.events

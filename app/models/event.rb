@@ -1,4 +1,4 @@
-class Event < ActiveRecord::Base
+class Event < ApplicationRecord
   geocoded_by :full_address
   after_validation :geocode
 
