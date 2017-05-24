@@ -19,9 +19,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
 gem 'haml-rails'
 
-# Who needs Ruby form helpers anymore?
-gem 'simple_form'
-
 # Gonna do this up with Vue.js and Webpack
 #gem 'therubyracer'
 gem 'jquery-rails'
