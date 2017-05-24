@@ -3,6 +3,7 @@ $(document).ready(function(){
 
     //var styles = [{"featureType":"all","elementType":"all","stylers":[{"saturation":-100},{"gamma":0.5}]}]
 
+    // Extract this json to own module
     var styles = [{
       "featureType": "landscape.man_made",
       "elementType": "geometry",
@@ -104,15 +105,14 @@ $(document).ready(function(){
     styles: styles
   });
 
+  // Let's use proper scoping and not put stuff on window.
   window.my_map = map
 
   var my_date = $(".my_date").data("date")
   $.getJSON('/events.json?date='+ my_date, function(data) {
-
     window.event_listings = data.events
 
     $.each( data.events, function(i, value) {
-
       var template = $('#template').html();
       var rendered = Mustache.render(template, value)
 
@@ -127,9 +127,9 @@ $(document).ready(function(){
           $("#event_details").scrollTop(0)
         }
       });
-
     });
 
+    // TODO: this is a hack. (componentDidMount much?)
     // trigger one that it doesn't look all blank to start
     var random_marker = _.sample(window.my_map.markers)
     google.maps.event.trigger(random_marker, 'click')

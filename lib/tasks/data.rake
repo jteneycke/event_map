@@ -5,6 +5,15 @@ namespace :data do
   desc "Scrape and update data from blogto"
   task update: :environment do
 
+    # We can just hit the API directly now!
+    # http://www.blogto.com/api/v2/events/?bundle_type=medium&date=2017-05-19&limit=9999&offset=0&ordering=-start_date_time
+    # http://www.blogto.com/api/v2/events/?
+    # bundle_type=medium
+    # date=2017-05-19
+    # limit=9999
+    # offset=0
+    # ordering=-start_date_time
+
     date_urls = (Date.today..(Date.today + 10)).to_a.map do |date|
       "http://www.blogto.com/events/?date=" + date.to_s
     end
@@ -12,14 +21,13 @@ namespace :data do
     date_urls.each do |date_url|
       puts "\nFetching #{date_url}..."
 
-      index_page =  Nokogiri::HTML(open(date_url)) 
+      index_page =  Nokogiri::HTML(open(date_url))
       events = index_page.css(".events-item").map do |event|
         {
           event_url: event.css(".event-name a").map{|x| "http://www.blogto.com" + x.attr('href') }.first,
           image_url: event.css(".poster a img").map{|img| img.attr("src") }.first
         }
       end
-
 
       events.each do |event|
         page = Nokogiri::HTML(open(event[:event_url]))
