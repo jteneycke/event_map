@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 # Update Rails
 gem 'rails', '5.0.0'
+gem 'sqlite3'
 
 #gem 'pg'
 gem 'que'
