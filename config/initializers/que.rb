@@ -1,1 +1,0 @@
-Que.logger = nil

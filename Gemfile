@@ -5,8 +5,6 @@ gem 'rails', '5.0.0'
 gem 'sqlite3'
 
 #gem 'pg'
-gem 'que'
-gem 'que-web'
 
 gem 'webpacker', github: 'rails/webpacker'
 
