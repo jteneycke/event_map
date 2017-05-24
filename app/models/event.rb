@@ -5,4 +5,5 @@ class Event < ApplicationRecord
   def full_address
     "#{address}, Toronto, Ontario"
   end
+
 end
