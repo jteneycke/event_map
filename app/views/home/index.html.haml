@@ -31,9 +31,11 @@
 
 %script#template{:type => "x-tmpl-mustache"}
   %h3.event-title
-    %a{href: "{{website}}", target: "_blank" } {{ title }}
+    %a{href: "{{ ticket_url }}", target: "_blank" } {{ title }}
+  %img{src: "{{ cover_photo_url }}", style: "width: 100%" }
   %hr
-  %h4.event-venue {{ time }} - {{ venue }}
+  %h4.event-venue {{ start_time }} - {{ end_time }}
+  %h4.event-venue {{ location }}
   %h4.event-venue {{ address }}
   %hr
-  %p {{{ body }}}
+  %p {{{ description }}}

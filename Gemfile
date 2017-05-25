@@ -7,6 +7,7 @@ gem 'sqlite3'
 #gem 'pg'
 
 gem 'webpacker', github: 'rails/webpacker'
+gem 'httparty'
 
 # Maybe a different scheduler?
 gem 'whenever', :require => false
@@ -30,6 +31,8 @@ gem 'gmapsjs'
 
 gem 'geocoder'
 gem 'pry-rails'
+gem 'pry-theme'
+gem 'clipboard'
 
 group :production do
   gem 'rails_12factor'

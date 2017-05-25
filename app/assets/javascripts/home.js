@@ -105,15 +105,19 @@ $(document).ready(function(){
     styles: styles
   });
 
+  var categories = ["business", "comedy", "crafts", "fashion", "film", "food-drink", "galleries-museums", "music", "performing-arts", "social", "sports", "tech", "other", "", "today", "friday", "saturday", "this-weekend", "next-weekend", "this-week", "next-week", "", "business", "comedy", "crafts", "fashion", "film", "food-drink", "galleries-museums", "music", "performing-arts", "social", "sports", "tech", "other",  "today", "friday", "saturday", "this-weekend", "next-weekend", "this-week", "next-week"]
+
   // Let's use proper scoping and not put stuff on window.
   window.my_map = map
 
   // http://www.blogto.com/api/v2/events/?bundle_type=medium&date=2017-05-19&limit=9999&offset=0&ordering=-start_date_time
   var my_date = $(".my_date").data("date")
-  $.getJSON('/events.json?date='+ my_date, function(data) {
-    window.event_listings = data.events
+  //$.getJSON('/events.json?date='+ my_date, function(data) {
+  $.getJSON("https://discover.universe.com/api/v2/discover_events?after=1495832400&before=1496030399&latitude=43.6383&limit=400&longitude=-79.4301", function(data) {
+    $.each( data.discover_events, function(i, value) {
 
-    $.each( data.events, function(i, value) {
+      value["description"] = value["description"].replace("\n", "<br><br>")
+
       var template = $('#template').html();
       var rendered = Mustache.render(template, value)
 
@@ -121,7 +125,7 @@ $(document).ready(function(){
         lat: value.latitude,
         lng: value.longitude,
         title: value.title,
-        //icon: "/" + _.sample(["yoga", "war", "wetlands", "windturbine"]) + ".png",
+        icon: "/" + _.sample(["yoga", "war", "wetlands", "windturbine"]) + ".png",
         click: function(e) {
           $("#event_details").html(rendered)
           $("#event_details a").attr('target', '_blank')
