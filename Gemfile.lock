@@ -157,7 +157,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rake (12.0.0)
+    rake (12.3.0)
     ruby_parser (3.9.0)
       sexp_processor (~> 4.1)
     sass (3.4.24)
@@ -223,4 +223,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   1.15.0
+   1.16.1
